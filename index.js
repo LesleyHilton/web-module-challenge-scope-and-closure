@@ -25,31 +25,43 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 /*Task 1: counterMaker()
   
-  Study the code for counter1 and counter2, then answer the questions below.
-  
   1. What is the difference between counter1 and counter2?
+
+
+  ****See below******
+
+  In counter1, the variable count is declared inside the function. It returns count incremented by one. It returns a function outside of the brackets, hence demonstrating closure.
+  Then when the function is invoked on line 53, it is stored in a variable counter1.
+  
+  
+  In counter2, the variable is declared outside the function.
   
   2. Which of the two uses a closure? How can you tell?
+
+  Counter2 calls on a function outside of the brackets, thus demonstrating closure.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 */
 
+//Counter2 would be better if other functions needed access to the variable "count."
+
 // counter1 code
-function counterMaker() {
-  let count = 0;
-  return function counter() {
-   return count++;
+function counterMaker() { // this line declares the function
+  let count = 0; // this line declares a variable
+  return function counter() { // returns the function "counter," heretofore unknown
+   return count++; // incrementation of count
+   // function within a function
   }
 }
 
 const counter1 = counterMaker();
 
 // counter2 code
-let count = 0;
+let count = 0; // variable is declared outside the function
 
-function counter2() {
-  return count++;
+function counter2() { // function with no parameters
+  return count++; // closure: it calls on a variable outside the function
 }
 
 
@@ -62,8 +74,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.random(Math.floor * 3);
 }
 
 
